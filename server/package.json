@@ -1,7 +1,6 @@
 {
 	"dependencies": {
 		"express": "latest",
-		"jade": "latest",
 		"mongoose": "latest",
 		"passport": "latest",
 		"passport-local": "latest",
@@ -13,8 +12,7 @@
 		"mocha": "latest",
 		"supertest": "latest"
 	},
-	"name": "twyst",
-	"subdomain": "appa-twyst",
+	"name": "letshavecoffee",
 	"scripts": {
 		"start": "node app.js",
 		"test": "mocha --recursive -R spec -t 5000"

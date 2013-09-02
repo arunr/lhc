@@ -20,7 +20,7 @@ module.exports = function(app) {
 		app.use(express.static(__dirname + '/../../web_apps/'));
 	    app.use(app.router);
 		
-		app.use(express.favicon(__dirname + '/../../web_apps/common/images/favicon/twyst.ico'));
+		//app.use(express.favicon(__dirname + '/../../web_apps/common/images/favicon/twyst.ico'));
 
 		app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));	
 
