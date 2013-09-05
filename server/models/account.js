@@ -5,9 +5,7 @@ var passportLocalMongoose = require('passport-local-mongoose');
 var LocalStrategy = require('passport-local').Strategy;
 
 var Account = new Schema({
-    email: String,
-    role: String,
-    validated: Boolean
+	college: String
 });
 
 Account.plugin(passportLocalMongoose);

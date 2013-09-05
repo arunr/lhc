@@ -36,7 +36,8 @@ line-height: 25px;
 font-size:13px;
 font-family: MyriadRegular,sans-serif;
 color: #666;
-
+background-color: #fff;
+padding:0px;
 /*
 background: url('https://rayeesasindiankitchen.com/wp-content/themes/rayeesa/images/background.jpg') no-repeat center center fixed; 
 -webkit-background-size: cover;
@@ -46,11 +47,12 @@ background-size: cover;
 */
 /*background-color: #ef8b20;*/
 /*background-image:url('../img/repeat.jpg');*/
-background-image:url('../../common/images/back_gold.jpg');
+/*background-image:url('../../common/images/back_gold.jpg');
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
+*/
 /*background-repeat:no-repeat;
 background-position: center;
 */
@@ -440,4 +442,8 @@ padding:10px 10px 5px 10px;
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
+}
+
+.mycont {
+  padding:10px;
 }

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="letsHaveCoffee">
+
+<head>
+    <script src="../common/libs/angular/angular.js"></script>       
+    <script src="../common/libs/angular/angular-cookies.js"></script>
+    <script src="../common/libs/holder/holder.js"></script>
+    <script src="./app.js"></script>
+    <script src="./scripts/controllers.js"></script>
+    <link rel="stylesheet" href="../common/libs/bootstrap/css/bootstrap.css">
+
+    <script src="../common/libs/ui_bootstrap/ui_bootstrap.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>let's have coffee</title>
+    <meta name="description" content="let&#39;s have coffee is a platform for you to meet like-minded students and alumni of top colleges across the country.">
+    <meta name="keywords" content="lets have coffee, meet people, new people, social meeting place, Online dating, dating website">
+    <meta name="author" content="lets have coffee">
+    <meta property="og:title" content="let&#39;s have coffee">
+    <meta property="og:url" content="http://letshavecoffee.in">
+    <meta property="og:site_name" content="lets&#39;s have coffee">
+    <meta property="og:description" content="let&#39;s have coffee is a platform for you to meet like-minded students and alumni of top colleges across the country.">
+    <meta property="og:type" content="website">
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <!--CSS-->
+    <link rel="stylesheet" href="./stylesheets/baseHome.css">
+    <link rel="stylesheet" href="./stylesheets/ColorBox/colorbox.css">
+    <link rel="stylesheet" type="text/css" href="./lhc/jquery-ui2.css">
+
+</head>
+
+<body  ng-controller="PublicController">
+
+    <div id="content">
+        <div style="width: 980px; margin: 0 auto; min-height: 10px">
+            <div style="max-height: 440px; position: relative">
+                <div class="sketch">
+                    <img src="./lhc/sketch.png" width="90%">
+                </div>
+
+                <div class="process">
+                    <img src="./lhc/process.png" width="79%">
+                </div>
+
+                <div class="register">           
+                    <section class="main">
+                        <form class="form-2" id="regForm1">
+                            <p style="text-align: center;font-family:&#39;Mistral&#39;;font-size:28px;padding-bottom:10px;">Ready for an Adventure?</p>
+
+                            <p class="floatfull">
+                                <label for="institute">
+                                    <span id="Institute"><a href="#" class="inline2 cboxElement">Not listed ?</a>
+                                    </span>
+                                </label>
+                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                <input ng-controller="TypeaheadCtrl" placeholder="Start typing to choose college..." class="ui-autocomplete-input" type="text" ng-model="user.college" typeahead="college for college in colleges | filter:$viewValue | limitTo:8">
+                            </p>
+                            <p class="floatfull">
+                                <span id="EmailStatus" style="float:right;font-size:10px;width: 100%;height: 10px !important;text-align: right;height: 14px !important;"></span>
+                                <input type="text" name="email" id="email" placeholder="Email" ng-model="user.email">
+                            </p>
+                            <span id="PasswordStatus" style="float:right;font-size:10px;width: 100%;text-align: right;height: 14px !important;"></span>
+                            <p class="float">
+                                <input type="password" name="password" id="password" placeholder="Password" class="showpassword" ng-model="user.password">
+                            </p>
+                            <p class="float">
+                                <input type="password" name="confpassword" id="confpassword" placeholder="Repeat Password" class="showpassword">
+                            </p>
+
+                            <div style="clear: both;"></div>
+                            <p class="clearfix">
+                                <input type="submit" name="submit" id="SignUpSubmit" value="Yes! Count me in" ng-click="register()">
+                            </p>
+                            <div style="height: 5px;"></div>
+                        </form>
+                    </section>
+                    <section class="main">
+                        <form class="form-2">
+                            <center style="padding-bottom: 8px;">
+                                <a onclick="javascript:fb_login();" href="javascript:void(0);">
+                                    <img style="border: 0px solid #fff;width:100%;margin-top:-8px;" src="./lhc/fb-signup.png">
+                                    <br>
+                                    <p style="font-size:12px;color:#000;">We will never post anything on your wall, EVER!</p>
+                                </a>
+                            </center>
+                            <div style="clear: both;"></div>
+                        </form>
+                    </section>
+                </div>
+
+                <div style="clear: both;"></div>
+            </div>
+
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+
+    <div id="boxesmain">
+        <div style="width: 980px; margin: 0 auto;">
+
+            <div class="inner-box">
+                <div class="item">
+                    <div class="image">
+                        <img style="width:70%;" src="./lhc/verified.png">
+                    </div>
+                    <div class="text">
+                        <h3>Anonymous</h3>
+                        Identities are not shared till there's a mutual like and you permit us
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="image">
+                        <img style="width:70%;" src="./lhc/star.png">
+                    </div>
+                    <div class="text">
+                        <h3>Exclusive</h3>
+                        We allow students and alumni of top colleges only
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="image">
+                        <img style="width:70%;" src="./lhc/nosearch.png">
+                    </div>
+                    <div class="text">
+                        <h3>No Random Searching</h3>
+                        We put you in touch with people who already like you
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="footer">
+
+        <div id="footer-inner">
+            <!-- AddThis Button BEGIN -->
+            <div class="addthis_toolbox addthis_default_style " style="width: 150px;margin: 3px auto;color:#000;">
+                <a class="addthis_button_preferred_2 addthis_button_twitter at300b" title="Tweet" href="http://devluvguru.pakzinc.com/#">
+                    <span class="at16nc at300bs at15nc at15t_twitter at16t_twitter">
+                        <span class="at_a11y">Share on twitter</span>
+                    </span>
+                </a>
+                <a class="addthis_button_preferred_3 addthis_button_email at300b" target="_blank" title="Email" href="http://devluvguru.pakzinc.com/#">
+                    <span class="at16nc at300bs at15nc at15t_email at16t_email">
+                        <span class="at_a11y">Share on email</span>
+                    </span>
+                </a>
+                <a class="addthis_button_preferred_4 addthis_button_print at300b" title="Print" href="http://devluvguru.pakzinc.com/#">
+                    <span class="at16nc at300bs at15nc at15t_print at16t_print">
+                        <span class="at_a11y">Share on print</span>
+                    </span>
+                </a>
+                <a class="addthis_button_compact at300m" href="http://devluvguru.pakzinc.com/#">
+                    <span class="at16nc at300bs at15nc at15t_compact at16t_compact">
+                        <span class="at_a11y">More Sharing Services</span>
+                    </span>
+                </a>
+                <a class="addthis_counter addthis_bubble_style" href="http://devluvguru.pakzinc.com/#" style="display: inline-block;"><a class="addthis_button_expanded" target="_blank" title="View more services" href="http://devluvguru.pakzinc.com/#">4</a>
+                <a class="atc_s addthis_button_compact">
+                    <span></span>
+                </a>
+                </a>
+                <div class="atclear"></div>
+            </div>
+            <script type="text/javascript" src="./lhc/addthis_widget.js"></script>
+            <div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;">
+                <iframe id="_atssh853" title="AddThis utility frame" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0px; left: 0px; top: 0px;" src="./lhc/sh136.html"></iframe>
+            </div>
+            <script type="text/javascript" src="./lhc/core094.js"></script>
+            <!-- AddThis Button END -->
+
+
+            <div id="links">
+                <a href="./About/">About</a>
+                <a href="./Contact/">Contact</a>
+                <a href="./FAQs/">FAQs</a>
+                <a href="./file/documents/letshavecoffeedocs/PrivacyStatement.pdf" target="_blank">Privacy Policy</a>
+                <span>©2013 let's have coffee</span>
+            </div>
+        </div>
+
+    </div>
+    <div style="clear: both;"></div>
+    <div id="Modal">
+        <div id="Not-ListedInstitute">
+            <div style="width: 80%; margin: 0 auto; font-family: calibri;">
+                <h3 align="center">Institute not listed ?
+                    <br>Request to add.</h3>
+                <br>
+                <div class="One-Block">
+                    <div class="title">
+                        <span>Name of Institute :</span>
+                    </div>
+                    <div class="value">
+                        <input type="text" id="regColID" name="collegeID" placeholder="Institute name">
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+                <div class="One-Block">
+                    <div class="title">
+                        <span>City:</span>
+                    </div>
+                    <div class="value">
+                        <input type="text" id="regColCity" name="collegeCity" placeholder="Which city is it in?">
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+                <div class="One-Block">
+                    <div class="title">
+                        <span>State:</span>
+                    </div>
+                    <div class="value">
+                        <input type="text" id="regColState" name="collegeState" placeholder="Which state is it in?">
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+                <div class="One-Block">
+                    <div class="title">
+                        <span>Course:</span>
+                    </div>
+                    <div class="value">
+                        <input type="text" id="regColCourse" name="collegeCourse" placeholder="Your Course">
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+                <div class="One-Block">
+                    <div class="title">
+                        <span>Your Email Address :</span>
+                    </div>
+                    <div class="value">
+                        <input type="text" id="regEmailID" name="email" placeholder="Email">
+                    </div>
+                </div>
+                <p class="clearfix">
+                    <button class="action-button" type="submit" onclick="addCollegeRequest();" name="submit">SUBMIT</button>
+                </p>
+            </div>
+        </div>
+        <div id="Facebook-temp" style="text-align:center;">
+            <p>Sorry! FaceBook login is not enabled at the moment</p>
+        </div>
+    </div>
+
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-43071135-1', 'letshavecoffee.in');
+    ga('send', 'pageview');
+    </script>
+    <div id="cboxOverlay" style="display: none;"></div>
+    <div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;">
+        <div id="cboxWrapper">
+            <div>
+                <div id="cboxTopLeft" style="float: left;"></div>
+                <div id="cboxTopCenter" style="float: left;"></div>
+                <div id="cboxTopRight" style="float: left;"></div>
+            </div>
+            <div style="clear: left;">
+                <div id="cboxMiddleLeft" style="float: left;"></div>
+                <div id="cboxContent" style="float: left;">
+                    <div id="cboxTitle" style="float: left;"></div>
+                    <div id="cboxCurrent" style="float: left;"></div>
+                    <button id="cboxPrevious"></button>
+                    <button id="cboxNext"></button>
+                    <button id="cboxSlideshow"></button>
+                    <div id="cboxLoadingOverlay" style="float: left;"></div>
+                    <div id="cboxLoadingGraphic" style="float: left;"></div>
+                    <button id="cboxClose"></button>
+                </div>
+                <div id="cboxMiddleRight" style="float: left;"></div>
+            </div>
+            <div style="clear: left;">
+                <div id="cboxBottomLeft" style="float: left;"></div>
+                <div id="cboxBottomCenter" style="float: left;"></div>
+                <div id="cboxBottomRight" style="float: left;"></div>
+            </div>
+        </div>
+        <div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
+    </div>
+    <div id="cboxOverlay" style="display: none;"></div>
+    <div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;">
+        <div id="cboxWrapper">
+            <div>
+                <div id="cboxTopLeft" style="float: left;"></div>
+                <div id="cboxTopCenter" style="float: left;"></div>
+                <div id="cboxTopRight" style="float: left;"></div>
+            </div>
+            <div style="clear: left;">
+                <div id="cboxMiddleLeft" style="float: left;"></div>
+                <div id="cboxContent" style="float: left;">
+                    <div id="cboxTitle" style="float: left;"></div>
+                    <div id="cboxCurrent" style="float: left;"></div>
+                    <button id="cboxPrevious"></button>
+                    <button id="cboxNext"></button>
+                    <button id="cboxSlideshow"></button>
+                    <div id="cboxLoadingOverlay" style="float: left;"></div>
+                    <div id="cboxLoadingGraphic" style="float: left;"></div>
+                    <button id="cboxClose"></button>
+                </div>
+                <div id="cboxMiddleRight" style="float: left;"></div>
+            </div>
+            <div style="clear: left;">
+                <div id="cboxBottomLeft" style="float: left;"></div>
+                <div id="cboxBottomCenter" style="float: left;"></div>
+                <div id="cboxBottomRight" style="float: left;"></div>
+            </div>
+        </div>
+        <div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
+    </div>
+    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="display: none;"></ul>
+    <div id="fb-root" class=" fb_reset">
+        <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
+            <div>
+                <iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./lhc/xd_arbiter.html" style="border: none;"></iframe>
+                <iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./lhc/xd_arbiter(1).html" style="border: none;"></iframe>
+            </div>
+        </div>
+        <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
+            <div>
+                <iframe name="f1ff67d3b" frameborder="0" allowtransparency="true" scrolling="no" src="./lhc/ping.html" style="display: none;"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

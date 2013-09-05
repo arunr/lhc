@@ -9,7 +9,8 @@ module.exports.login = function(req,res) {
 };
 
 module.exports.register = function(req,res) {
-	Account.register(new Account({ username : req.body.username, email: req.body.email, role: req.body.role }), req.body.password, function(err, account) {
+	console.log(req.body);
+	Account.register(new Account({ username : req.body.username, college: req.body.college }), req.body.password, function(err, account) {
 	    if (err) {
 	        res.send({	'status' : 'error',
 	        		  	'message' : 'Error creating account',
