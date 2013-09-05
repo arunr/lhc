@@ -1,19 +1,31 @@
 function PublicController($scope, $http, $location) {
 
     $scope.user = {};
+    $scope.done = false;
+    $scope.errors = false;
     $scope.register = function() {
-        console.log("in register");
-        console.log($scope.user);
         var request = $http.post('/api/v1/auth/register', {
-            username: $scope.user.email,
-            password: $scope.user.password,
+            email: $scope.user.email,
+            sex: $scope.user.sex,
             college: $scope.user.college
         });
         return request.then(function(response) {
-            console.log(response)
+            var res = response.data.status;
+            console.log(res);
+            if (res !== "error") {
+                $scope.done = !$scope.done;
+                $scope.errors = false;
 
+            } else {
+                $scope.done = !$scope.done;
+                $scope.errors = true;
+            }
+            console.log($scope.done);
+            console.log(response);
         }, function(response) {
-            console.log(response)
+            $scope.done = !$scope.done;
+            $scope.errors = true;
+            console.log(response);
         });
     }
 }

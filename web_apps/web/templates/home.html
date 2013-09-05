@@ -10,26 +10,32 @@
                 </div>
             </div>
             <div class="span4">
-                <div id="signup">
+                <div id="signup" ng-show="!done">
                     <p>Ready for an adventure?</p>
                         <fieldset>
-                            <input ng-controller="TypeaheadCtrl" placeholder="Start typing to choose college..." type="text" ng-model="user.college" typeahead="college for college in colleges | filter:$viewValue | limitTo:8">
-                            <input type="email" placeholder="Enter your email id">
+                            <input ng-controller="TypeaheadCtrl" placeholder="Start typing to choose college..." type="text" ng-model="user.college" typeahead="college for college in colleges | filter:$viewValue | limitTo:8" required="">
+                            <input type="email" placeholder="Enter your email id" ng-model="user.email" required="">
                             <div class="span3 radiotext">
                                 I am a...
                             </div>
                             <div class="span3">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="male" ng-model="user.sex">
                                 <img src="images/boy.png" alt-text="boy">
                             </div>
                             <div class="span3">
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="female" ng-model="user.sex">
                                 <img src="images/girl.png" alt-text="girl">
                             </div>
                         </fieldset>
                         <hr/>
-                        <button type="submit" class="btn btn-success btn-block" style="font-family:agenda; font-size:18px; border-radius:6px">Get on the waitlist !</button>
+                        <button ng-disabled="!user.email.length || !user.college.length" type="submit" class="btn btn-success btn-block" style="font-family:agenda; font-size:18px; border-radius:6px" ng-click="register()">Get on the waitlist !</button>
                 </div>
+                <div id="message" ng-show="done && !errors">
+                    <p class="alert alert-success">Thanks for signing-up!</p>
+                </div>
+                <div id="message" ng-show="errors">
+                    <p class="alert alert-warning">You are already registered!</p>
+                </div>                
             </div>
         </div>
         <div class="row-fluid" id="bottom">

@@ -1,12 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var passport = require('passport');
-var passportLocalMongoose = require('passport-local-mongoose');
-var LocalStrategy = require('passport-local').Strategy;
 
 var Account = new Schema({
-	college: String
+	email: {type: String, trim: true, required: true, unique: true, index: {unique: true}},
+	college: {type:String, trim: true, required: true},
+	sex: {type: String, enum: ['male', 'female']}
 });
 
-Account.plugin(passportLocalMongoose);
 module.exports = mongoose.model('Account', Account);	

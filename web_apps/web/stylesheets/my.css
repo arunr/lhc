@@ -68,13 +68,23 @@ body {
 	background: white;
 	width: 50%;
 	border-radius:10px;
-    font-family:'agenda';	
+    font-family:'agenda';
 }
+
+#message {
+    padding: 15px;
+    margin: 50px;
+    width: 75%;
+    font-family:'agenda';
+    font-size: 16px;
+    min-height: 100px;  
+}
+
 
 #signup p {
     color: #217EA7;
     float: left;
-    font-size: 22px;
+    font-size: 20px;
     margin-left: 2%;
     margin-top: 2.2%;
 }
