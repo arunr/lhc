@@ -1,6 +1,7 @@
 function PublicController($scope, $http, $location) {
 
     $scope.user = {};
+    $scope.college = {};
     $scope.done = false;
     $scope.errors = false;
     $scope.register = function() {
@@ -27,6 +28,24 @@ function PublicController($scope, $http, $location) {
             $scope.errors = true;
             console.log(response);
         });
+    }
+
+    $scope.addCollege = function() {
+        console.log($scope.college);
+        var request = $http.post('/api/v1/college/signup', {
+            email: $scope.college.email,
+            name: $scope.college.name,
+            city: $scope.college.city
+        });
+        return request.then(function(response) {
+            var res = response.data.status;
+            console.log(res);
+
+        }, function(response) {
+            var res = response.data.status;
+            console.log(res);
+        });
+
     }
 }
 

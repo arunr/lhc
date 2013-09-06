@@ -1,75 +1,112 @@
-        <div class="row-fluid" id="content">
-            <div class="span4 offset2">
-                <div class="picture">
-                    <img src="../common/images/sketch.png" width="90%">
+<div class="row-fluid" id="content">
+    <div class="span4 offset2">
+        <div class="picture">
+            <img src="../common/images/sketch.png" width="90%">
+        </div>
+    </div>
+    <div class="span2">
+        <div class="steps">
+            <img src="../common/images/process.png">
+        </div>
+    </div>
+    <div class="span4">
+        <div id="signup" ng-show="!done">
+            <p>Ready for an adventure?</p>
+            <fieldset>
+                <input class="input-large" ng-controller="TypeaheadCtrl" placeholder="Start typing to choose your college..." type="text" ng-model="user.college" typeahead="college for college in colleges | filter:$viewValue | limitTo:8" required="">
+                <button class="badge badge-info" style="margin-bottom: 5px" data-toggle="modal" href="#addCollege">Don't see your college? Add it !</button>
+
+                <input class="input-large" type="email" placeholder="Enter your email id" ng-model="user.email" required="">
+                <div class="span3 radiotext">
+                    I am a...
+                </div>
+                <div class="span3">
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="male" ng-model="user.sex">
+                    <img src="../common/images/boy.png" alt-text="boy">
+                </div>
+                <div class="span3">
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="female" ng-model="user.sex">
+                    <img src="../common/images/girl.png" alt-text="girl">
+                </div>
+            </fieldset>
+            <hr/>
+            <button ng-disabled="!user.email.length || !user.college.length" type="submit" class="btn btn-success btn-block" style="font-family:agenda; font-size:18px; border-radius:6px" ng-click="register()">Get on the waitlist !</button>
+        </div>
+        <div id="addCollege" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <h3>Add your college!</h3>
+            </div>
+            <div class="modal-body">
+                <div class="divDialogElements">
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label" for="college">Name of your college</label>
+                            <div class="controls">
+                                <input class="input-large" type="text" id="college" ng-model="college.name" placeholder="College name" required>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="city">City</label>
+                            <div class="controls">
+                                <input class="input-large" type="text" id="city" ng-model="college.city" placeholder="City" required>
+                            </div>
+                        </div>                        
+                        <div class="control-group">
+                            <label class="control-label" for="email">Your email address</label>
+                            <div class="controls">
+                                <input class="input-large" type="email" id="email" ng-model="college.email" placeholder="Email" required>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-inverse" data-dismiss="modal">Cancel</a>
+                <a href="#" class="btn btn-success" ng-click="addCollege();" data-dismiss="modal">Add your college!</a>
+            </div>
+        </div>
+
+        <div id="message" ng-show="done && !errors">
+            <p class="alert alert-success">Thanks for signing-up!</p>
+        </div>
+        <div id="message" ng-show="errors">
+            <p class="alert alert-warning">You are already registered!</p>
+        </div>
+    </div>
+</div>
+<div class="row-fluid" id="bottom">
+    <div class="span3 offset2">
+        <div class="row-fluid box">
             <div class="span2">
-                <div class="steps">
-                    <img src="../common/images/process.png">
-                </div>
+                <img src="../common/images/verified.png">
             </div>
-            <div class="span4">
-                <div id="signup" ng-show="!done">
-                    <p>Ready for an adventure?</p>
-                        <fieldset>
-                            <input ng-controller="TypeaheadCtrl" placeholder="Start typing to choose college..." type="text" ng-model="user.college" typeahead="college for college in colleges | filter:$viewValue | limitTo:8" required="">
-                            <input type="email" placeholder="Enter your email id" ng-model="user.email" required="">
-                            <div class="span3 radiotext">
-                                I am a...
-                            </div>
-                            <div class="span3">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="male" ng-model="user.sex">
-                                <img src="../common/images/boy.png" alt-text="boy">
-                            </div>
-                            <div class="span3">
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="female" ng-model="user.sex">
-                                <img src="../common/images/girl.png" alt-text="girl">
-                            </div>
-                        </fieldset>
-                        <hr/>
-                        <button ng-disabled="!user.email.length || !user.college.length" type="submit" class="btn btn-success btn-block" style="font-family:agenda; font-size:18px; border-radius:6px" ng-click="register()">Get on the waitlist !</button>
-                </div>
-                <div id="message" ng-show="done && !errors">
-                    <p class="alert alert-success">Thanks for signing-up!</p>
-                </div>
-                <div id="message" ng-show="errors">
-                    <p class="alert alert-warning">You are already registered!</p>
-                </div>                
+            <div class="span8">
+                <h3>Anonymous</h3>
+                <p>Identities are not shared till there's a mutual like and you permit us</p>
             </div>
         </div>
-        <div class="row-fluid" id="bottom">
-            <div class="span3 offset2">
-                <div class="row-fluid box">
-                    <div class="span2">
-                        <img src="../common/images/verified.png">
-                    </div>
-                    <div class="span8">
-                        <h3>Anonymous</h3>
-                        <p>Identities are not shared till there's a mutual like and you permit us</p>
-                    </div>
-                </div>
+    </div>
+    <div class="span3 ">
+        <div class="row-fluid box">
+            <div class="span2">
+                <img src="../common/images/star.png">
             </div>
-            <div class="span3 ">
-                <div class="row-fluid box">
-                    <div class="span2">
-                        <img src="../common/images/star.png">
-                    </div>
-                    <div class="span8">
-                        <h3>Exclusive</h3>
-                        <p>We allow students and alumni of top colleges only</p>
-                    </div>
-                </div>
-            </div>
-            <div class="span3">
-                <div class="row-fluid box">
-                    <div class="span2">
-                        <img src="../common/images/nosearch.png">
-                    </div>
-                    <div class="span8">
-                        <h3>Private</h3>
-                        <p>We only connect you to people who you have allowed</p>
-                    </div>
-                </div>
+            <div class="span8">
+                <h3>Exclusive</h3>
+                <p>We allow students and alumni of top colleges only</p>
             </div>
         </div>
+    </div>
+    <div class="span3">
+        <div class="row-fluid box">
+            <div class="span2">
+                <img src="../common/images/nosearch.png">
+            </div>
+            <div class="span8">
+                <h3>Private</h3>
+                <p>We only connect you to people who you have allowed</p>
+            </div>
+        </div>
+    </div>
+</div>

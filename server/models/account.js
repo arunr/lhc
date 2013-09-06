@@ -8,3 +8,11 @@ var Account = new Schema({
 });
 
 module.exports = mongoose.model('Account', Account);	
+
+var College = new Schema({
+	name: {type: String, trim: true, required: true, unique: true, index: true },
+	city: {type: String, trim: true, required: true},
+	email: {type: String, trim: true, required: true}
+});
+
+module.exports = mongoose.model('College', College);

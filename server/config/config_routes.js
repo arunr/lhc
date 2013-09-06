@@ -5,6 +5,8 @@ module.exports = function(app) {
 	(function authentication_routes() {
 		var AccountCtrl = require('../controllers/account');
 		app.post('/api/v1/auth/register', AccountCtrl.signup);
+		app.post('/api/v1/college/signup', AccountCtrl.addcollege);
+
 	})();
 
 	(function handle_defaults() {
